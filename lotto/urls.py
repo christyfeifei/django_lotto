@@ -21,4 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.index),
     path("today/", views.today),
+    path("lotto/", views.get_lotto),
 ]

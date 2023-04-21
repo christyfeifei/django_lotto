@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import random
+from datetime import datetime
 
 # Create your views here.
 
@@ -10,10 +11,13 @@ def index(request):
 
 
 def today(request):
-    from datetime import datetime
+    # print(date)  # 印出字串在console端
+    return HttpResponse(get_date())  # 封裝後、回傳在前端
+
+
+def get_date():
     date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(date)  # 印出字串在console端
-    return HttpResponse(date)  # 封裝後、回傳在前端
+    return date
 
 
 """
@@ -23,7 +27,7 @@ def today(request):
 """
 
 
-def get_lotto(count=6):
+def get_lotto(request, count=6):
     lottos = []
     while True:
         x = random.randint(1, 49)
@@ -38,7 +42,7 @@ def get_lotto(count=6):
     # 把lottos六個號碼轉字串(str)後、用","隔開，並去掉特別號[:-1]
     result = ','.join(map(str, lottos[:-1]))+f' 特別號:{lottos[-1]}'
 
-    return result
+    return render(request, 'lotto.html', {'result': result,'date':get_date()})
 
 
-print(get_lotto())
+# print(get_lotto())

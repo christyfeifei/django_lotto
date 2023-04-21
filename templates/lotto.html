@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大樂透首頁</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            text-align: center;
+        }
+
+        .banner {
+            background-color: cadetblue;
+            color: white;
+            padding: 24px;
+        }
+
+        .date {
+            display: inline-block;
+            padding: 6px;
+            font-size: large;
+        }
+
+        #lotto {
+            width: 500px;
+            background-color: gold;
+            display: inline-block;
+            padding: 12px;
+            font-size: 36px;
+            color: red;
+            border-radius: 6px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="banner">大樂透號碼預測</h1>    
+    <P class="date"><u>{{date}}</u></P>
+    <br>
+    <!-- jinja2 模板語法 -->
+    <p id="lotto">{{result}}</p>
+</body>
+</html>
