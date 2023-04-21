@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse('<h1>歡迎光臨!</h1>')
+    return render(request, 'index.html')
 
 
 def today(request):
